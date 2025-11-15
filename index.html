@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Nouman Shakeel - Portfolio</title>
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Hero Background */
+.hero {
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1600369677217-0017a86b14f7?auto=format&fit=crop&w=1600&q=80') center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    backdrop-filter: brightness(0.6);
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 10px black;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 6px black;
+}
+
+/* Icon Buttons */
+.icon-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.icon-button {
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: white;
+    padding: 12px 18px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.icon-button:hover {
+    transform: scale(1.1);
+}
+
+/* Specific Button Hover Colors */
+.facebook:hover { background: #1877F2; }
+.instagram:hover { background: #E4405F; }
+.snapchat:hover { background: #FFFC00; color: black; }
+.linkedin:hover { background: #0077b5; }
+.phone:hover { background: #25d366; }
+.email:hover { background: #EA4335; }
+
+/* Sections */
+.section {
+    padding: 70px 15%;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #111;
+}
+
+.section p {
+    font-size: 1.2rem;
+    color: #444;
+    line-height: 1.7;
+}
+
+/* Achievements Boxes */
+.achievements {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.box {
+    width: 280px;
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.box:hover {
+    transform: translateY(-10px);
+}
+
+.box i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #0077b5;
+}
+
+/* Certification Card */
+.cert-card {
+    margin-top: 50px;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+.cert-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #111;
+}
+
+.cert-card p {
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.7;
+}
+
+.cert-card a {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    color: #0077b5;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.cert-card a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #111;
+    color: white;
+    margin-top: 40px;
+}
+</style>
+</head>
+<body>
+
+<!-- HERO SECTION -->
+<div class="hero">
+    <h1>Muhammad Nouman Shakeel</h1>
+    <p>Entrepreneur | BS AI Student at NUST Pakistan</p>
+
+    <div class="icon-buttons">
+        <button class="icon-button facebook" onclick="window.open('https://www.facebook.com/nouman.shakil.1','_blank')">
+            <i class="fab fa-facebook-f"></i> Facebook
+        </button>
+        <button class="icon-button instagram" onclick="window.open('https://www.instagram.com/_nouman_shakeel_','_blank')">
+            <i class="fab fa-instagram"></i> Instagram
+        </button>
+        <button class="icon-button snapchat" onclick="window.open('https://www.snapchat.com/add/n0uman_shakeel','_blank')">
+            <i class="fab fa-snapchat-ghost"></i> Snapchat
+        </button>
+        <button class="icon-button linkedin" onclick="window.open('https://www.linkedin.com/in/muhammad-nouman-shakeel-781514386','_blank')">
+            <i class="fab fa-linkedin-in"></i> LinkedIn
+        </button>
+        <button class="icon-button phone" onclick="window.location.href='tel:+92340505503'">
+            <i class="fas fa-phone"></i> Call
+        </button>
+        <button class="icon-button email" onclick="window.location.href='mailto:nouman.shakeel555@gmail.com'">
+            <i class="fas fa-envelope"></i> Email
+        </button>
+    </div>
+</div>
+
+<!-- ACADEMIC BACKGROUND SECTION -->
+<div class="section" id="academics">
+    <h2>Academic Background</h2>
+    <p>
+        I have always been passionate about academics and technology.  
+        I scored <strong>90% in Matric</strong> and <strong>94% in FSC</strong>, earning distinctions throughout my academic journey.  
+        I am currently pursuing a <strong>Bachelor’s in Artificial Intelligence at NUST</strong>, one of Pakistan’s leading engineering and technology institutes.
+    </p>
+</div>
+
+<!-- ACHIEVEMENTS SECTION -->
+<div class="section" id="achievements">
+    <h2>Achievements</h2>
+    <p>Some highlights of my journey so far:</p>
+
+    <div class="achievements">
+
+        <div class="box">
+            <i class="fas fa-trophy"></i>
+            <h3>34 Trophies</h3>
+            <p>Awarded for academic excellence, competitions, leadership, and extracurricular participation.</p>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-certificate"></i>
+            <h3>13 Certificates</h3>
+            <p>Earned through competitions, academic achievements, and performance-based activities.</p>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-globe"></i>
+            <h3>Online Certifications</h3>
+            <p>Shown below in detail.</p>
+        </div>
+
+    </div>
+</div>
+
+<!-- ONLINE CERTIFICATIONS SECTION -->
+<div class="section" id="certifications">
+    <h2>Online Certifications</h2>
+
+    <div class="cert-card">
+        <h3>AWS Financial Services Generative AI Bootcamp</h3>
+        <p>
+            I completed the <strong>AWS Generative AI Bootcamp</strong>, focused on applying LLMs and Foundation Models
+            to real-world financial industry use cases.  
+            During this hands-on training, I worked extensively with <strong>Amazon Bedrock</strong> and
+            <strong>Amazon SageMaker</strong> to build, evaluate, and deploy generative AI solutions.
+        </p>
+
+        <p>
+            I gained practical experience in:
+            <br>• <strong>Prompt engineering</strong> for enterprise-grade LLMs  
+            <br>• <strong>Retrieval-Augmented Generation (RAG)</strong> pipelines  
+            <br>• <strong>Fine-tuning foundation models</strong> using AWS tools  
+            <br>• <strong>Model evaluation, optimization, and deployment</strong>  
+            <br>• Integrating LLM capabilities into financial workflows  
+        </p>
+
+        <p>
+            As part of my <strong>capstone project</strong>, I designed an end-to-end generative AI system capable of enhancing
+            decision-making processes in complex financial domains.  
+            This project strengthened my understanding of scalable AI architecture, data engineering,
+            and deploying secure, production-ready cloud AI solutions.
+        </p>
+
+        <a href="https://www.credly.com/org/aws-community/badge/financial-services-generative-ai-bootcamp" target="_blank">
+            View Certification →
+        </a>
+    </div>
+</div>
+
+<footer>
+    © 2025 Muhammad Nouman Shakeel — All Rights Reserved
+</footer>
+
+</body>
+</html>
