@@ -1,278 +1,676 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Muhammad Nouman Shakeel - Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Nouman Shakeel - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css ">
+>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300 ;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ======= GLOBAL ======= */
+        :root {
+            --accent-1: #00eaff;
+            --accent-2: #0077ff;
+            --accent-3: #00ff95;
+            --glass: rgba(255, 255, 255, 0.14);
+        }
 
-<!-- Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            scroll-behavior: smooth;
+            transition: background 0.4s ease, color 0.4s ease;
+            background: #fafafa;
+            color: #111;
+        }
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+        .dark-mode {
+            background: #0d0d0d;
+            color: #e9eef6;
+        }
 
-<style>
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: "Poppins", sans-serif;
-    scroll-behavior: smooth;
-}
+        /* ======= SIDE NAVIGATION ======= */
+        #sideNav {
+            width: 230px;
+            height: 100vh;
+            background: linear-gradient(180deg, #0f1724 0%, #111 100%);
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            align-items: center;
+            transform: translateX(-260px);
+            transition: 0.45s cubic-bezier(.2, .9, .2, 1);
+            box-shadow: 0 10px 30px rgba(2, 6, 23, 0.4);
+            z-index: 999;
+        }
 
-/* Hero Background */
+        #sideNav.active {
+            transform: translateX(0);
+        }
+
+        #sideNav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.05rem;
+            width: 100%;
+            padding: 10px 18px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            border-left: 4px solid transparent;
+            transition: all 0.25s;
+        }
+
+        #sideNav a i {
+            width: 22px;
+            text-align: center;
+        }
+
+        #sideNav a:hover {
+            background: rgba(255, 255, 255, 0.03);
+            transform: translateX(6px);
+            border-left-color: var(--accent-1);
+        }
+
+        #sideNav a.active {
+            background: rgba(255, 255, 255, 0.04);
+            border-left-color: var(--accent-1);
+        }
+
+        #menuBtn {
+            position: fixed;
+            left: 18px;
+            top: 18px;
+            z-index: 1000;
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+            color: #021;
+            padding: 10px 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            border: none;
+            font-size: 1.05rem;
+            box-shadow: 0 6px 18px rgba(2, 118, 255, 0.18);
+        }
+
+        /* ======= DARK MODE BUTTON ======= */
+        #darkModeBtn {
+            position: fixed;
+            right: 20px;
+            top: 18px;
+            z-index: 1000;
+            background: #111;
+            color: white;
+            padding: 10px 14px;
+            border-radius: 10px;
+            cursor: pointer;
+            border: none;
+            font-size: 0.95rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+        }
+
+      
+/* ======= HERO SECTION ======= */
 .hero {
-    height: 100vh;
-    background: url('https://images.unsplash.com/photo-1600369677217-0017a86b14f7?auto=format&fit=crop&w=1600&q=80') center/cover;
+    min-height: 100vh;
+    background: url('https://images.unsplash.com/photo-1600369677217-0017a86b14f7?auto=format&fit=crop&w=1600&q=80 ') center/cover fixed;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
     text-align: center;
-    backdrop-filter: brightness(0.6);
     padding: 20px;
+    position: relative;
+    overflow: hidden;
 }
 
+/* ---------- HERO OVERLAY ---------- */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(2, 6, 23, 0.45), rgba(2, 6, 23, 0.25));
+    pointer-events: none;
+}
+
+/* ---------- NAME (NORMAL CLEAN TEXT — NO GRADIENT) ---------- */
 .hero h1 {
     font-size: 3.5rem;
-    text-shadow: 2px 2px 10px black;
+    font-weight: 700;
+    margin: 0 auto 10px;
+    color: snow-white;        /* clean white for hero section */
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.35); /* small shadow to stay readable */
 }
 
+
+
+
+/* ---------- TAG-LINE ---------- */
 .hero p {
-    font-size: 1.5rem;
-    margin-bottom: 30px;
-    text-shadow: 1px 1px 6px black;
+    position: relative;
+    z-index: 2;
+    font-size: 1.2rem;
+    margin: 0 auto 20px;
+    max-width: 600px;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: none;
 }
 
-/* Icon Buttons */
+
+/* ICON BUTTONS - (kept exactly as you had) */
 .icon-buttons {
     display: flex;
-    gap: 15px;
+    gap: 14px;
     flex-wrap: wrap;
     justify-content: center;
+    z-index: 2;
 }
 
 .icon-button {
-    background: rgba(255,255,255,0.15);
+    --bg: var(--glass);
+    --fg: white;
+    background: var(--bg);
+    color: var(--fg);
     border: none;
-    color: white;
-    padding: 12px 18px;
-    font-size: 1.1rem;
-    border-radius: 50px;
+    padding: 10px 14px;
+    border-radius: 40px;
     display: flex;
-    align-items: center;
     gap: 8px;
+    align-items: center;
     cursor: pointer;
-    transition: 0.3s;
+    font-weight: 600;
+    box-shadow: 0 6px 18px rgba(2, 6, 23, 0.2);
+    transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+    backdrop-filter: blur(6px);
+}
+
+.icon-button i {
+    font-size: 1.05rem;
+    color: inherit;
 }
 
 .icon-button:hover {
-    transform: scale(1.1);
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 14px 40px rgba(2, 118, 255, 0.18);
 }
 
-/* Specific Button Hover Colors */
-.facebook:hover { background: #1877F2; }
-.instagram:hover { background: #E4405F; }
-.snapchat:hover { background: #FFFC00; color: black; }
-.linkedin:hover { background: #0077b5; }
-.phone:hover { background: #25d366; }
-.email:hover { background: #EA4335; }
+.icon-button.facebook:hover { background: #1877F2; color: white; }
+.icon-button.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); color: white; }
+.icon-button.snapchat:hover { background: #FFFC00; color: #111; }
+.icon-button.linkedin:hover { background: #0077b5; color: white; }
+.icon-button.phone:hover { background: #25d366; color: white; }
+.icon-button.email:hover { background: #EA4335; color: white; }
 
-/* Sections */
-.section {
-    padding: 70px 15%;
-    text-align: center;
+body:not(.dark-mode) .icon-button {
+    color: #021;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(250, 250, 250, 0.9));
+    box-shadow: 0 8px 22px rgba(2, 6, 23, 0.06);
 }
 
-.section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #111;
+body:not(.dark-mode) .icon-button i {
+    color: #0a0a0a;
 }
+        /* ICON BUTTONS - ensure visible on both light/dark */
+        .icon-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: center;
+            z-index: 2;
+        }
 
-.section p {
-    font-size: 1.2rem;
-    color: #444;
-    line-height: 1.7;
-}
+        .icon-button {
+            --bg: var(--glass);
+            --fg: white;
+            background: var(--bg);
+            color: var(--fg);
+            border: none;
+            padding: 10px 14px;
+            border-radius: 40px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 6px 18px rgba(2, 6, 23, 0.2);
+            transition: transform .25s, box-shadow .25s, background .25s;
+            backdrop-filter: blur(6px);
+        }
 
-/* Achievements Boxes */
-.achievements {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin-top: 30px;
-}
+        .icon-button i {
+            font-size: 1.05rem;
+            color: inherit;
+        }
 
-.box {
-    width: 280px;
-    background: white;
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    transition: 0.3s;
-}
+        .icon-button:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 14px 40px rgba(2, 118, 255, 0.18);
+        }
 
-.box:hover {
-    transform: translateY(-10px);
-}
+        /* specific colored hover states - enforced contrasting text color */
+        .icon-button.facebook:hover {
+            background: #1877F2;
+            color: white;
+        }
 
-.box i {
-    font-size: 3rem;
-    margin-bottom: 15px;
-    color: #0077b5;
-}
+        .icon-button.instagram:hover {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+            color: white;
+        }
 
-/* Certification Card */
-.cert-card {
-    margin-top: 50px;
-    background: white;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    text-align: left;
-}
+        .icon-button.snapchat:hover {
+            background: #FFFC00;
+            color: #111;
+        }
 
-.cert-card h3 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    color: #111;
-}
+        .icon-button.linkedin:hover {
+            background: #0077b5;
+            color: white;
+        }
 
-.cert-card p {
-    font-size: 1.1rem;
-    color: #444;
-    line-height: 1.7;
-}
+        .icon-button.phone:hover {
+            background: #25d366;
+            color: white;
+        }
 
-.cert-card a {
-    display: inline-block;
-    margin-top: 15px;
-    font-size: 1.1rem;
-    color: #0077b5;
-    text-decoration: none;
-    font-weight: 600;
-}
+        .icon-button.email:hover {
+            background: #EA4335;
+            color: white;
+        }
 
-.cert-card a:hover {
-    text-decoration: underline;
-}
+        /* ensure icon visibility when light background sections appear */
+        body:not(.dark-mode) .icon-button {
+            color: #021;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(250, 250, 250, 0.9));
+            box-shadow: 0 8px 22px rgba(2, 6, 23, 0.06);
+        }
 
-footer {
-    text-align: center;
-    padding: 30px;
-    background: #111;
-    color: white;
-    margin-top: 40px;
-}
-</style>
+        body:not(.dark-mode) .icon-button i {
+            color: #0a0a0a;
+        }
+
+        /* ======= SECTIONS ======= */
+        .section {
+            padding: 70px 15%;
+            text-align: center;
+            animation: fadeUp .9s ease;
+        }
+
+        .section h2 {
+            font-size: 2.6rem;
+            margin-bottom: 14px;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ACHIEVEMENTS */
+        .achievements {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            width: 280px;
+            background: white;
+            padding: 24px;
+            border-radius: 18px;
+            box-shadow: 0 12px 30px rgba(12, 24, 48, 0.06);
+            transition: transform .35s, box-shadow .35s;
+        }
+
+        .box:hover {
+            transform: translateY(-14px) scale(1.02);
+            box-shadow: 0 26px 60px rgba(2, 118, 255, 0.08);
+        }
+
+        .box i {
+            font-size: 2.6rem;
+            color: var(--accent-2);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* certification card */
+        .cert-card {
+            margin-top: 30px;
+            background: white;
+            padding: 28px;
+            border-radius: 16px;
+            box-shadow: 0 12px 30px rgba(12, 24, 48, 0.06);
+        }
+
+        .cert-card a.badge {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 10px 14px;
+            border-radius: 999px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+            color: #021;
+        }
+
+        .cert-card a.badge i {
+            margin-right: 8px;
+        }
+
+        /* DARK MODE ADJUSTMENTS */
+        .dark-mode .hero::after {
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+        }
+
+        .dark-mode .box,
+        .dark-mode .cert-card {
+            background: #0f1114;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .dark-mode .icon-button {
+            background: rgba(255, 255, 255, 0.06);
+            color: white;
+        }
+
+        .dark-mode .icon-button i {
+            color: white;
+        }
+
+        .dark-mode footer {
+            background: #050608;
+        }
+
+        /* footer */
+        footer {
+            text-align: center;
+            padding: 28px;
+            background: #111;
+            color: white;
+            margin-top: 40px;
+        }
+
+        /* responsive */
+        @media (max-width:900px) {
+            #sideNav {
+                width: 220px;
+            }
+
+            .section {
+                padding: 50px 8%;
+            }
+
+            .hero h1 {
+                font-size: 2.6rem;
+            }
+        }
+
+        /* FIX HERO NAME BLUR & MAKE CRISP */
+        #name {
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            filter: none !important;
+            text-shadow: 0 0 8px rgba(0, 0, 0, 0.35);
+        }
+
+        /* CLEAN + CENTER FEEDBACK FORM */
+        .feedback-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 550px;
+            margin: 0 auto;
+            margin-top: 25px;
+        }
+
+        .feedback-form input,
+        .feedback-form textarea {
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            font-family: inherit;
+            resize: none;
+            outline: none;
+            transition: border 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feedback-form input:focus,
+        .feedback-form textarea:focus {
+            border-color: var(--accent-2);
+            box-shadow: 0 0 10px rgba(0, 119, 255, 0.25);
+        }
+
+        .feedback-form textarea {
+            min-height: 130px;
+        }
+
+        .feedback-form button {
+            align-self: center;
+            padding: 12px 26px;
+            background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+            border: none;
+            color: #021;
+            font-size: 1.05rem;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .feedback-form button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 22px rgba(0, 119, 255, 0.3);
+        }
+    </style>
 </head>
+
 <body>
 
-<!-- HERO SECTION -->
-<div class="hero">
-    <h1>Muhammad Nouman Shakeel</h1>
-    <p>Entrepreneur | BS AI Student at NUST Pakistan</p>
+    <button id="menuBtn" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+    <button id="darkModeBtn" aria-label="Toggle dark mode">Toggle Dark</button>
 
-    <div class="icon-buttons">
-        <button class="icon-button facebook" onclick="window.open('https://www.facebook.com/nouman.shakil.1','_blank')">
-            <i class="fab fa-facebook-f"></i> Facebook
-        </button>
-        <button class="icon-button instagram" onclick="window.open('https://www.instagram.com/_nouman_shakeel_','_blank')">
-            <i class="fab fa-instagram"></i> Instagram
-        </button>
-        <button class="icon-button snapchat" onclick="window.open('https://www.snapchat.com/add/n0uman_shakeel','_blank')">
-            <i class="fab fa-snapchat-ghost"></i> Snapchat
-        </button>
-        <button class="icon-button linkedin" onclick="window.open('https://www.linkedin.com/in/muhammad-nouman-shakeel-781514386','_blank')">
-            <i class="fab fa-linkedin-in"></i> LinkedIn
-        </button>
-        <button class="icon-button phone" onclick="window.location.href='tel:+92340505503'">
-            <i class="fas fa-phone"></i> Call
-        </button>
-        <button class="icon-button email" onclick="window.location.href='mailto:nouman.shakeel555@gmail.com'">
-            <i class="fas fa-envelope"></i> Email
-        </button>
-    </div>
-</div>
+    <!-- SIDE NAV -->
+    <nav id="sideNav" aria-label="Main navigation">
+        <a href="#academics" data-target="academics"><i class="fas fa-graduation-cap"></i> Academics</a>
+        <a href="#achievements" data-target="achievements"><i class="fas fa-trophy"></i> Achievements</a>
+        <a href="#certifications" data-target="certifications"><i class="fas fa-certificate"></i> Certifications</a>
+        <a href="#contact" data-target="contact"><i class="fas fa-envelope"></i> Contact</a>
+    </nav>
 
-<!-- ACADEMIC BACKGROUND SECTION -->
-<div class="section" id="academics">
-    <h2>Academic Background</h2>
-    <p>
-        I have always been passionate about academics and technology.  
-        I scored <strong>90% in Matric</strong> and <strong>94% in FSC</strong>, earning distinctions throughout my academic journey.  
-        I am currently pursuing a <strong>Bachelor’s in Artificial Intelligence at NUST</strong>, one of Pakistan’s leading engineering and technology institutes.
-    </p>
-</div>
+    <!-- HERO -->
+    <header class="hero">
+        <h1 id="name">Muhammad Nouman Shakeel</h1>
+        <p>Entrepreneur | BS AI Student at NUST Pakistan</p>
 
-<!-- ACHIEVEMENTS SECTION -->
-<div class="section" id="achievements">
-    <h2>Achievements</h2>
-    <p>Some highlights of my journey so far:</p>
-
-    <div class="achievements">
-
-        <div class="box">
-            <i class="fas fa-trophy"></i>
-            <h3>34 Trophies</h3>
-            <p>Awarded for academic excellence, competitions, leadership, and extracurricular participation.</p>
+        <div class="icon-buttons">
+            <button class="icon-button facebook" onclick="window.open('https://www.facebook.com/nouman.shakil.1 ','_blank')">
+                <i class="fab fa-facebook-f"></i> Facebook
+            </button>
+            <button class="icon-button instagram" onclick="window.open('https://www.instagram.com/_nouman_shakeel_ ','_blank')">
+                <i class="fab fa-instagram"></i> Instagram
+            </button>
+            <button class="icon-button snapchat" onclick="window.open('https://www.snapchat.com/add/n0uman_shakeel ','_blank')">
+                <i class="fab fa-snapchat-ghost"></i> Snapchat
+            </button>
+            <button class="icon-button linkedin" onclick="window.open('https://www.linkedin.com/in/muhammad-nouman-shakeel-781514386 ','_blank')">
+                <i class="fab fa-linkedin-in"></i> LinkedIn
+            </button>
+            <button class="icon-button phone" onclick="window.location.href='tel:+92340505503'"><i class="fas fa-phone"></i> Call</button>
+            <button class="icon-button email" onclick="window.location.href='mailto:nouman.shakeel555@gmail.com'"><i class="fas fa-envelope"></i> Email</button>
         </div>
+    </header>
 
-        <div class="box">
-            <i class="fas fa-certificate"></i>
-            <h3>13 Certificates</h3>
-            <p>Earned through competitions, academic achievements, and performance-based activities.</p>
+    <!-- ACADEMICS -->
+    <section class="section" id="academics">
+        <h2>Academic Background</h2>
+        <p>I have always been passionate about academics and technology. I scored <strong>90% in Matric</strong> and <strong>94% in FSC</strong>, earning distinctions. Now pursuing <strong>BS Artificial Intelligence at NUST</strong>.</p>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section class="section" id="achievements">
+        <h2>Achievements</h2>
+        <div class="achievements">
+            <div class="box">
+                <i class="fas fa-trophy"></i>
+                <h3>34 Trophies</h3>
+                <p>Awarded for academic excellence, competitions and leadership.</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-certificate"></i>
+                <h3>13 Certificates</h3>
+                <p>Earned through competitions and academic achievements.</p>
+            </div>
+            <div class="box">
+                <i class="fas fa-globe"></i>
+                <h3>Online Certifications</h3>
+                <p>Shown below in detail.</p>
+            </div>
         </div>
+    </section>
 
-        <div class="box">
-            <i class="fas fa-globe"></i>
-            <h3>Online Certifications</h3>
-            <p>Shown below in detail.</p>
+    <!-- CERTIFICATIONS -->
+    <section class="section" id="certifications">
+        <h2>Online Certifications</h2>
+        <div class="cert-card">
+            <h3>AWS Financial Services Generative AI Bootcamp</h3>
+            <p>I completed the <strong>AWS Generative AI Bootcamp</strong>, focused on applying LLMs and Foundation Models to real-world financial industry use cases. During this hands-on training, I worked extensively with <strong>Amazon Bedrock</strong> and <strong>Amazon SageMaker</strong> to build, evaluate, and deploy generative AI solutions.</p>
+            <p>I gained practical experience in:<br>
+                • <strong>Prompt engineering</strong> for enterprise-grade LLMs<br>
+                • <strong>Retrieval-Augmented Generation (RAG)</strong> pipelines<br>
+                • <strong>Fine-tuning foundation models</strong> using AWS tools<br>
+                • <strong>Model evaluation, optimization, and deployment</strong><br>
+                • Integrating LLM capabilities into financial workflows</p>
+            <p>As part of my <strong>capstone project</strong>, I designed an end-to-end generative AI system capable of enhancing decision-making processes in complex financial domains. This project strengthened my understanding of scalable AI architecture, data engineering, and deploying secure, production-ready cloud AI solutions.</p>
+            <a class="badge" href="https://www.credly.com/org/aws-community/badge/financial-services-generative-ai-bootcamp " target="_blank" rel="noopener noreferrer"><i class="fas fa-link"></i> View AWS Bootcamp Badge</a>
         </div>
+    </section>
 
-    </div>
+<!-- FEEDBACK FORM SECTION -->
+<div class="section" id="feedback">
+  <h2>Leave a Review</h2>
+  <p>Your feedback helps me improve — feel free to share your thoughts!</p>
+
+  <!-- result banners -->
+  <div id="ok"  style="display:none; background:var(--accent-3); color:#021; padding:12px 20px; border-radius:8px; margin:0 auto 20px; max-width:480px; font-weight:600;">✔  Feedback submitted — thank you!</div>
+  <div id="bad" style="display:none; background:#ff4d4d; color:#fff; padding:12px 20px; border-radius:8px; margin:0 auto 20px; max-width:480px; font-weight:600;">✖  Failed to send. Please try again.</div>
+
+  <!-- glass-morphic form -->
+  <form id="fbForm" style="max-width:480px; margin:0 auto; display:flex; flex-direction:column; gap:14px;">
+    <input type="text"   name="name" placeholder="Your Name" required
+      style="padding:14px; border:none; border-radius:10px; background:var(--glass); color:inherit; font-family:inherit; outline:none; backdrop-filter:blur(6px);">
+    <input type="email"  name="email" placeholder="Your Email" required
+      style="padding:14px; border:none; border-radius:10px; background:var(--glass); color:inherit; font-family:inherit; outline:none; backdrop-filter:blur(6px);">
+    <textarea            name="message" placeholder="Your Feedback" required rows="4"
+      style="padding:14px; border:none; border-radius:10px; background:var(--glass); color:inherit; font-family:inherit; outline:none; resize:none; backdrop-filter:blur(6px);"></textarea>
+    <input type="text"   name="_honey" style="display:none"> <!-- spam trap -->
+    <button type="submit"
+      style="align-self:center; padding:12px 26px; background:linear-gradient(90deg,var(--accent-1),var(--accent-2)); border:none; color:#021; font-size:1.05rem; font-weight:700; border-radius:12px; cursor:pointer; transition:transform .25s, box-shadow .25s;"
+      onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 22px rgba(0,119,255,.3)';"
+      onmouseout="this.style.transform=''; this.style.boxShadow='';">Send Feedback</button>
+  </form>
 </div>
 
-<!-- ONLINE CERTIFICATIONS SECTION -->
-<div class="section" id="certifications">
-    <h2>Online Certifications</h2>
+<script>
+document.getElementById('fbForm').addEventListener('submit', async e => {
+  e.preventDefault();
+  const ok = document.getElementById('ok'), bad = document.getElementById('bad');
+  ok.style.display = bad.style.display = 'none';
 
-    <div class="cert-card">
-        <h3>AWS Financial Services Generative AI Bootcamp</h3>
-        <p>
-            I completed the <strong>AWS Generative AI Bootcamp</strong>, focused on applying LLMs and Foundation Models
-            to real-world financial industry use cases.  
-            During this hands-on training, I worked extensively with <strong>Amazon Bedrock</strong> and
-            <strong>Amazon SageMaker</strong> to build, evaluate, and deploy generative AI solutions.
-        </p>
+  const data = new FormData(e.target);
+  data.append('_subject', 'New portfolio feedback');
+  data.append('_template', 'table');
 
-        <p>
-            I gained practical experience in:
-            <br>• <strong>Prompt engineering</strong> for enterprise-grade LLMs  
-            <br>• <strong>Retrieval-Augmented Generation (RAG)</strong> pipelines  
-            <br>• <strong>Fine-tuning foundation models</strong> using AWS tools  
-            <br>• <strong>Model evaluation, optimization, and deployment</strong>  
-            <br>• Integrating LLM capabilities into financial workflows  
-        </p>
+  try {
+    const r = await fetch('https://formsubmit.co/ajax/nouman.shakeel161@gmail.com', {method:'POST', body:data});
+    if (!r.ok) throw new Error('Network');
+    ok.style.display = 'block';
+    e.target.reset();
+    ok.scrollIntoView({behavior:'smooth', block:'center'});
+  } catch (err) {
+    bad.style.display = 'block';
+  }
+});
+</script>-
 
-        <p>
-            As part of my <strong>capstone project</strong>, I designed an end-to-end generative AI system capable of enhancing
-            decision-making processes in complex financial domains.  
-            This project strengthened my understanding of scalable AI architecture, data engineering,
-            and deploying secure, production-ready cloud AI solutions.
-        </p>
+    <footer id="contact">© 2025 Muhammad Nouman Shakeel — All Rights Reserved</footer>
 
-        <a href="https://www.credly.com/org/aws-community/badge/financial-services-generative-ai-bootcamp" target="_blank">
-            View Certification →
-        </a>
-    </div>
-</div>
+    <script>
+        // Elements
+        const menuBtn = document.getElementById('menuBtn');
+        const sideNav = document.getElementById('sideNav');
+        const darkBtn = document.getElementById('darkModeBtn');
+        const nameEl = document.getElementById('name');
 
-<footer>
-    © 2025 Muhammad Nouman Shakeel — All Rights Reserved
-</footer>
+        // Menu toggle with subtle animation
+        menuBtn.addEventListener('click', () => {
+            sideNav.classList.toggle('active');
+            menuBtn.classList.toggle('open');
+        });
 
+        // Dark mode with localStorage persistence
+        const DARK_KEY = 'site-dark-mode';
+
+        function setDarkMode(on) {
+            document.body.classList.toggle('dark-mode', on);
+            darkBtn.textContent = on ? 'Light Mode' : 'Dark Mode';
+            localStorage.setItem(DARK_KEY, on ? '1' : '0');
+        }
+
+        // initialize
+        setDarkMode(localStorage.getItem(DARK_KEY) === '1');
+
+        darkBtn.addEventListener('click', () => setDarkMode(!document.body.classList.contains('dark-mode')));
+
+        // Highlight nav when scrolling
+        const sections = document.querySelectorAll('section, header');
+        const navLinks = document.querySelectorAll('#sideNav a[data-target]');
+
+        function onScroll() {
+            const scrollPos = window.scrollY + window.innerHeight / 3;
+            sections.forEach(sec => {
+                const top = sec.offsetTop;
+                const bottom = top + sec.offsetHeight;
+                const id = sec.id || 'home';
+                if (scrollPos >= top && scrollPos < bottom) {
+                    navLinks.forEach(a => a.classList.toggle('active', a.dataset.target === id));
+                }
+            });
+        }
+        window.addEventListener('scroll', onScroll);
+        onScroll();
+
+        // Small animation: name color pulse using JS to slightly vary gradient angle for 'alive' feeling
+        let ang = 0;
+        setInterval(() => {
+            ang = (ang + 2) % 360;
+            nameEl.style.background = `linear-gradient(${ang}deg, var(--accent-1), var(--accent-2), var(--accent-3))`;
+        }, 140);
+
+        // Close nav on link click (for mobile)
+        document.querySelectorAll('#sideNav a').forEach(a => a.addEventListener('click', () => sideNav.classList.remove('active')));
+    </script>
 </body>
 </html>
