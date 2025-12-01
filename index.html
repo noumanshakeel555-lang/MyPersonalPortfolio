@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Muhammad Nouman Shakeel - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <button id="menuBtn" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+  <button id="darkModeBtn" aria-label="Toggle dark mode">Toggle Dark</button>
+  <!-- same nav on every page -->
+  <nav id="sideNav" aria-label="Main navigation">
+    <a href="index.html"        data-target="home"><i class="fas fa-home"></i> Home</a>
+    <a href="academics.html"    data-target="academics"><i class="fas fa-graduation-cap"></i> Academics</a>
+    <a href="achievements.html" data-target="achievements"><i class="fas fa-trophy"></i> Achievements</a>
+    <a href="certifications.html" data-target="certifications"><i class="fas fa-certificate"></i> Certifications</a>
+    <a href="contact.html"      data-target="contact"><i class="fas fa-envelope"></i> Contact</a>
+  </nav>
+  <!-- HERO (only on index.html) -->
+  <header class="hero">
+    <h1 id="name">Muhammad Nouman Shakeel</h1>
+    <p>Entrepreneur | BS AI Student at NUST Pakistan</p>
+    <div class="icon-buttons">
+      <button class="icon-button facebook" onclick="window.open('https://www.facebook.com/nouman.shakil.1','_blank')"><i class="fab fa-facebook-f"></i> Facebook</button>
+      <button class="icon-button instagram" onclick="window.open('https://www.instagram.com/_nouman_shakeel_','_blank')"><i class="fab fa-instagram"></i> Instagram</button>
+      <button class="icon-button snapchat" onclick="window.open('https://www.snapchat.com/add/n0uman_shakeel','_blank')"><i class="fab fa-snapchat-ghost"></i> Snapchat</button>
+      <button class="icon-button linkedin" onclick="window.open('https://www.linkedin.com/in/muhammad-nouman-shakeel-781514386','_blank')"><i class="fab fa-linkedin-in"></i> LinkedIn</button>
+      <button class="icon-button phone" onclick="window.location.href='tel:+92340505503'"><i class="fas fa-phone"></i> Call</button>
+      <button class="icon-button email" onclick="window.location.href='mailto:nouman.shakeel555@gmail.com'"><i class="fas fa-envelope"></i> Email</button>
+    </div>
+  </header>
+  <script src="js/nav.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

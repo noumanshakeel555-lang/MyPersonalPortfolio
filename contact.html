@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact | Muhammad Nouman Shakeel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <button id="menuBtn"><i class="fas fa-bars"></i></button>
+  <button id="darkModeBtn">Toggle Dark</button>
+  <nav id="sideNav">
+    <a href="index.html"        data-target="home"><i class="fas fa-home"></i> Home</a>
+    <a href="academics.html"    data-target="academics"><i class="fas fa-graduation-cap"></i> Academics</a>
+    <a href="achievements.html" data-target="achievements"><i class="fas fa-trophy"></i> Achievements</a>
+    <a href="certifications.html" data-target="certifications"><i class="fas fa-certificate"></i> Certifications</a>
+    <a href="contact.html"      data-target="contact" class="active"><i class="fas fa-envelope"></i> Contact</a>
+  </nav>
+  <section class="section" id="feedback">
+    <h2>Leave a Review</h2>
+    <p>Your feedback helps me improve — feel free to share your thoughts!</p>
+<div id="ok"  style="display:none; background:var(--accent-3); color:#021; padding:12px 20px; border-radius:8px; margin:0 auto 20px; max-width:480px; font-weight:600;">✔  Feedback submitted — thank you!</div>
+<div id="bad" style="display:none; background:#ff4d4d; color:#fff; padding:12px 20px; border-radius:8px; margin:0 auto 20px; max-width:480px; font-weight:600;">✖  Failed to send. Please try again.</div>
+
+<form id="fbForm" style="max-width:480px; margin:0 auto; display:flex; flex-direction:column; gap:14px;">
+  <input type="text"   name="name" placeholder="Your Name" required
+    style="padding:14px; border:none; border-radius:10px; background:var(--glass); color:inherit; font-family:inherit; outline:none; backdrop-filter:blur(6px);">
+  <input type="email"  name="email" placeholder="Your Email" required
+    style="padding:14px; border:none; border-radius:10px; background:var(--glass); color:inherit; font-family:inherit; outline:none; backdrop-filter:blur(6px);">
+  <textarea            name="message" placeholder="Your Feedback" required rows="4"
+    style="padding:14px; border:none; border-radius:10px; background:var(--glass); color:inherit; font-family:inherit; outline:none; resize:none; backdrop-filter:blur(6px);"></textarea>
+  <input type="text"   name="_honey" style="display:none"> <!-- spam trap -->
+  <button type="submit"
+    style="align-self:center; padding:12px 26px; background:linear-gradient(90deg,var(--accent-1),var(--accent-2)); border:none; color:#021; font-size:1.05rem; font-weight:700; border-radius:12px; cursor:pointer; transition:transform .25s, box-shadow .25s;"
+    onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 22px rgba(0,119,255,.3)';"
+    onmouseout="this.style.transform=''; this.style.boxShadow='';">Send Feedback</button>
+</form>
+  </section>
+  <footer id="contact">© 2025 Muhammad Nouman Shakeel — All Rights Reserved</footer>
+  <script src="js/nav.js"></script>
+  <script src="js/feedback.js"></script>
+</body>
+</html>
